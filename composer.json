@@ -1,0 +1,13 @@
+{
+    "name": "voltz/silex-libs",
+    "description": "Librerias Custom para Silex",
+    "license": "Mit",
+    "authors": [
+        {
+            "name": "stefanogarate",
+            "email": "voltzmann@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
