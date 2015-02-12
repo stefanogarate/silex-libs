@@ -1,5 +1,7 @@
 <?php
 
+namespace Libs;
+
 use Silex\Application;
 
 
