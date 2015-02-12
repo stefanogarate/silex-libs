@@ -1,5 +1,5 @@
 <?php
-namespace Libs;
+
 
 class Html {
   private $_modelo='';
