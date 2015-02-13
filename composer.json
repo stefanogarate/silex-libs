@@ -3,6 +3,7 @@
     "type": "library",
     "description": "Librerias Custom para Silex",
     "license": "MIT",
+    "version": "1.0",
     "authors": [
         {
             "name": "Stefano Garate",
