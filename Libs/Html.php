@@ -96,10 +96,12 @@ class Html {
         }
         $out .= Html::closeTag('select');
         break;
+      case 'hidden':
+        $out .= Html::openTag("input", array('type'=>$tipo, 'name'=>$name, 'id'=>$id, 'value'=>$value));
+        break;
       default:
         $out .= Html::openTag("input", array('type'=>$tipo, 'class'=>'form-control', 'name'=>$name, 'id'=>$id, 'value'=>$value));
     }
-    
 
     return $out;
   }
@@ -114,6 +116,15 @@ class Html {
 
   public function dropDownList($name, $data) {
     return $this->input($name, 'select', $data)."\n";
+  }
+
+  public function inputHidden($name) {
+    return $this->input($name, 'hidden')."\n";
+  }
+
+  public function getFieldValue($campo) {
+    $value = $this->_value($name);
+    return $value;
   }
 
 }
