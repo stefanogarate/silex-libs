@@ -122,7 +122,7 @@ class Html {
     return $this->input($name, 'hidden')."\n";
   }
 
-  public function getFieldValue($campo) {
+  public function getFieldValue($name) {
     $value = $this->_value($name);
     return $value;
   }
