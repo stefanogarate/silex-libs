@@ -127,11 +127,15 @@ class Model {
   private function returnRow($data) {
     $clase = $this->_modelo;
     $objOut = new $clase($this->_app);
-    foreach($data as $k=>$w) {
-      $objOut->$k = $w;
-    }
+    if ($data !== false) {
+      foreach($data as $k=>$w) {
+        $objOut->$k = $w;
+      }
 
-    return $objOut;
+      return $objOut;
+    } else {
+      return null;
+    }    
   }
 
   private function returnRows($data) {
