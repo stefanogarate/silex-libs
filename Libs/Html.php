@@ -110,6 +110,10 @@ class Html {
     return $this->input($name, 'text')."\n";
   }
 
+  public function inputNumber($name) {
+    return $this->input($name, 'number')."\n";
+  }
+
   public function inputTextArea($name) {
     return $this->input($name, 'textarea')."\n";
   }
