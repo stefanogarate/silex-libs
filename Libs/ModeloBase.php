@@ -98,7 +98,11 @@ abstract class ModeloBase {
     if (is_array($datos) && !empty($datos)) {
       foreach ($datos as $key => $value) {
         if (empty($value)) {
-          $this->$key = null;
+          if (is_numeric($value)) {
+              $this->$key = $value;
+          } else {
+              $this->$key = null;
+          }
         } else {
           $this->$key = $value;
         }
