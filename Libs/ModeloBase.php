@@ -29,7 +29,7 @@ abstract class ModeloBase {
     $this->_app = $app;
     $this->_id = $this->setIdField();
     $this->prepareVariables($this->setFields());
-    
+
     return $this;
   }
 
@@ -74,7 +74,7 @@ abstract class ModeloBase {
     if (empty($this->$id)) {
       $out = $this->_app['db']->insert($this->getTableName(), $tosave);
       $this->$id = $this->_app['db']->lastInsertId();
-      return $out; 
+      return $out;
     } else {
       unset($tosave[$id]);
       return $this->_app['db']->update($this->getTableName(), $tosave, array($id=>$this->$id));
@@ -131,8 +131,14 @@ abstract class ModeloBase {
         case 'required':
           foreach ($aux as $w) {
             $w = trim($w);
-            if(empty($this->$w)) {
-              $out[] = $this->getLabel($w).' no puede ser nulo';
+            if (is_numeric($this->$w)) {
+              if ($this->$w == null || $this->$w == "") {
+                  $out[] = $this->getLabel($w).' no puede ser nulo';
+              }
+            } else {
+              if(empty($this->$w)) {
+                $out[] = $this->getLabel($w).' no puede ser nulo';
+              }
             }
           }
           break;
