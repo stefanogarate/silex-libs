@@ -8,7 +8,7 @@ class Model {
 
   private $_app;
   private $_modelo;
-  
+
   public function __construct(Application $app) {
     $this->_app = $app;
   }
@@ -27,7 +27,7 @@ class Model {
 
   public function count($condition) {
     if (empty($this->_modelo)) {
-      throw new Exception("Error no hay modelo seleccionado", 1);
+      throw new \Exception("Error no hay modelo seleccionado", 1);
     }
 
     $clase = $this->_modelo;
@@ -42,7 +42,7 @@ class Model {
 
   public function find($condition) {
     if (empty($this->_modelo)) {
-      throw new Exception("Error no hay modelo seleccionado", 1);
+      throw new \Exception("Error no hay modelo seleccionado", 1);
     }
     $sql = $this->prepareSelect($condition);
     $data = $this->_app['db']->fetchAssoc($sql);
@@ -51,21 +51,21 @@ class Model {
 
   public function findAll($condition='') {
     if (empty($this->_modelo)) {
-      throw new Exception("Error no hay modelo seleccionado", 1);
+      throw new \Exception("Error no hay modelo seleccionado", 1);
     }
     $sql = $this->prepareSelect($condition);
     $data = $this->_app['db']->fetchAll($sql);
-    return $this->returnRows($data); 
+    return $this->returnRows($data);
   }
 
   public function deleteAll($condition) {
     if (empty($this->_modelo)) {
-      throw new Exception("Error no hay modelo seleccionado", 1);
+      throw new \Exception("Error no hay modelo seleccionado", 1);
     }
     $id = $this->_id;
     $modelo = $this->_modelo;
     $condition['select'] = $id;
-    
+
     $sql = $this->prepareSelect($condition);
     $data = $this->_app['db']->fetchAll($sql);
     foreach ($data as $value) {
@@ -135,7 +135,7 @@ class Model {
       return $objOut;
     } else {
       return null;
-    }    
+    }
   }
 
   private function returnRows($data) {

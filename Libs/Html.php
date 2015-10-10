@@ -5,7 +5,7 @@ class Html {
   private $_modelo='';
 
   public function modelo($modelo) {
-    if (empty($modelo)) { throw new Exception("Error faltan parametros", 1); }
+    if (empty($modelo)) { throw new \Exception("Error faltan parametros", 1); }
     $this->_modelo = $modelo;
   }
 
@@ -32,7 +32,7 @@ class Html {
   }
 
   public function tag($tag, $htmlOptions=array(), $content=false, $close=true) {
-    if (empty($tag)) { throw new Exception("Error faltan parametros", 1); }
+    if (empty($tag)) { throw new \Exception("Error faltan parametros", 1); }
 
     $opts = Html::procesaHtmlOptions($htmlOptions);
     $out = "<".$tag.$opts;
@@ -47,14 +47,14 @@ class Html {
   }
 
   public function openTag($tag, $htmlOptions=array()) {
-    if (empty($tag)) { throw new Exception("Error faltan parametros", 1); }
+    if (empty($tag)) { throw new \Exception("Error faltan parametros", 1); }
 
     $opts = Html::procesaHtmlOptions($htmlOptions);
     return "<".$tag.$opts.">";
   }
 
   public function closeTag($tag) {
-    if (empty($tag)) { throw new Exception("Error faltan parametros", 1); }
+    if (empty($tag)) { throw new \Exception("Error faltan parametros", 1); }
     return "</".$tag.">";
   }
 
@@ -72,7 +72,7 @@ class Html {
   }
 
   public function input($name, $tipo, $extra='') {
-    if (empty($name)) { throw new Exception("Error faltan parametros", 1); }
+    if (empty($name)) { throw new \Exception("Error faltan parametros", 1); }
     $out = '';
     $id = $this->_id($name);
     $value = $this->_value($name);

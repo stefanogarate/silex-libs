@@ -14,16 +14,16 @@ abstract class ModeloBase {
   public function __construct(Application $app) {
 
     if (array_key_exists("_id", $this->setFields())) {
-      throw new Exception("Error no puede haber una variable llamada _id", 1);
+      throw new \Exception("Error no puede haber una variable llamada _id", 1);
     }
     if (array_key_exists("_campos", $this->setFields())) {
-      throw new Exception("Error no puede haber una variable llamada _campos", 1);
+      throw new \Exception("Error no puede haber una variable llamada _campos", 1);
     }
     if (array_key_exists("_app", $this->setFields())) {
-      throw new Exception("Error no puede haber una variable llamada _app", 1);
+      throw new \Exception("Error no puede haber una variable llamada _app", 1);
     }
     if (array_key_exists("_labels", $this->setFields())) {
-      throw new Exception("Error no puede haber una variable llamada _labels", 1);
+      throw new \Exception("Error no puede haber una variable llamada _labels", 1);
     }
 
     $this->_app = $app;
@@ -55,7 +55,7 @@ abstract class ModeloBase {
         return $this->$name = $value;
       } else {
         //nada
-        //throw new Exception("Cannot add new property \$$name to instance of " . __CLASS__);
+        //throw new \Exception("Cannot add new property \$$name to instance of " . __CLASS__);
       }
     }
   }
@@ -108,7 +108,7 @@ abstract class ModeloBase {
         }
       }
     } else {
-      throw new Exception("Error datos deben estar en array()", 1);
+      throw new \Exception("Error datos deben estar en array()", 1);
     }
   }
 
