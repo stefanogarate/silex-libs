@@ -87,6 +87,7 @@ class Html {
         break;
       case 'select':
         $out .= Html::openTag("select", array('type'=>$tipo, 'class'=>'form-control', 'name'=>$name, 'id'=>$id));
+        $out .= "  ".Html::Tag('option', array('value'=>''), '')."\n";
         foreach($extra as $k=>$v) {
           if ($k == $value) {
             $out .= "  ".Html::Tag('option', array('value'=>$k, 'selected'=>1), $v)."\n";
