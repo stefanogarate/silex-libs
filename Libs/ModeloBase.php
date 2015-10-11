@@ -95,7 +95,7 @@ abstract class ModeloBase {
 
   public function setAttributes($datos) {
 
-    if (is_array($datos) && !empty($datos)) {
+    if (!empty($datos)) {
       foreach ($datos as $key => $value) {
         if (empty($value)) {
           if (is_numeric($value)) {
